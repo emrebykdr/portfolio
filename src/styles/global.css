@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-accent dark:bg-accent-dark/30 dark:text-accent-dark;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl font-bold mb-2 text-gray-900 dark:text-white;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 dark:text-gray-400 mb-12;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-6 hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-accent dark:bg-accent-dark text-white dark:text-gray-950 rounded-xl font-semibold hover:opacity-90 transition-opacity;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-accent dark:border-accent-dark text-accent dark:text-accent-dark rounded-xl font-semibold hover:bg-accent/10 dark:hover:bg-accent-dark/10 transition-colors;
+  }
+
+  .skill-badge {
+    @apply px-3 py-1.5 text-sm font-mono font-medium rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700;
+  }
+
+  .tag {
+    @apply px-2 py-0.5 text-xs font-medium rounded-md bg-accent/10 dark:bg-accent-dark/10 text-accent dark:text-accent-dark;
+  }
+}

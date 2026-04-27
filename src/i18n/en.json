@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "hobbies": "Hobbies",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Emre Büyükdere",
+    "role": "Backend Developer & Embedded Systems Engineer",
+    "pitch": "Building scalable solutions to real-world problems with C#, Python, and embedded systems.",
+    "cta_projects": "View My Projects",
+    "cta_contact": "Get in Touch",
+    "available": "Open to opportunities"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Problem → Solution → Technology format",
+    "items": [
+      {
+        "name": "Yazoical",
+        "description": "A social platform designed for software developers — focused on code sharing, technical blogging, and developer community building.",
+        "problem": "Lack of a dedicated Turkish platform for developers to share technical knowledge.",
+        "solution": "Markdown-powered code sharing, tagging system, and community features.",
+        "tech": ["ASP.NET Core", "PostgreSQL", "Redis", "Docker"],
+        "status": "In Development"
+      },
+      {
+        "name": "TEKNOFEST 2026 – Unmanned Ground Vehicle",
+        "description": "Autonomous navigation system for the TEKNOFEST Unmanned Ground Vehicles competition.",
+        "problem": "Obstacle detection and autonomous movement in complex terrain conditions.",
+        "solution": "STM32-based control system, ESP32 WiFi module, and real-time image processing.",
+        "tech": ["STM32", "ESP32", "Python", "OpenCV", "ROS2"],
+        "status": "Active"
+      },
+      {
+        "name": "RoboCode Management System",
+        "description": "Event, member, and project management platform for the Bitlis Eren University RoboCode club.",
+        "problem": "Inefficiency from managing club operations via spreadsheets.",
+        "solution": "Role-based access control, event calendar, and project tracking modules.",
+        "tech": ["ASP.NET Core", "Entity Framework", "SQL Server", "Bootstrap"],
+        "status": "Completed"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "An honest assessment",
+    "categories": {
+      "backend": "Backend",
+      "hardware": "Hardware",
+      "database": "Database",
+      "devops": "DevOps & Tools"
+    }
+  },
+  "experience": {
+    "title": "Experience & Education",
+    "subtitle": "My academic and community journey",
+    "education": "Education",
+    "clubs": "Clubs & Responsibilities"
+  },
+  "hobbies": {
+    "title": "Hobbies",
+    "subtitle": "My world outside of work",
+    "ski": {
+      "title": "Alpine Skiing",
+      "description": "I actively ski in slalom and giant slalom disciplines. Problem-solving in mountain environments shapes my engineering mindset."
+    },
+    "printing": {
+      "title": "3D Printing",
+      "description": "I produce prototype parts, robotics components for the club, and design projects with my Artillery X4 Plus printer."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Reach out for projects or collaboration",
+    "name": "Your name",
+    "email": "Your email address",
+    "message": "Your message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent! I'll get back to you as soon as possible.",
+    "error": "An error occurred. Please try again.",
+    "name_placeholder": "Enter your name",
+    "email_placeholder": "email@example.com",
+    "message_placeholder": "Write your message here..."
+  },
+  "footer": {
+    "status": "Status Page",
+    "rights": "All rights reserved.",
+    "built_with": "Built with Astro & Tailwind CSS"
+  }
+}

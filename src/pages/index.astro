@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
+import Hobbies from "../components/Hobbies.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import { useTranslations } from "../i18n/utils";
+
+const lang = "tr";
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="Emre Büyükdere – Backend Developer & Gömülü Sistem Mühendisi"
+  description="C#, Python ve gömülü sistemler ile gerçek dünya problemlerine ölçeklenebilir çözümler üretiyorum."
+  lang={lang}
+>
+  <Hero t={t} />
+  <Projects t={t} lang={lang} />
+  <Skills t={t} />
+  <Experience t={t} lang={lang} />
+  <Hobbies t={t} />
+  <Contact t={t} lang={lang} />
+  <Footer t={t} />
+</Layout>

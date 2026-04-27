@@ -1,0 +1,79 @@
+---
+interface Props {
+  t: Record<string, unknown>;
+  lang: string;
+}
+const { t, lang } = Astro.props;
+const projects = t.projects as Record<string, unknown>;
+const items = projects.items as Array<{
+  name: string;
+  description: string;
+  problem: string;
+  solution: string;
+  tech: string[];
+  status: string;
+}>;
+
+const statusColors: Record<string, string> = {
+  "Aktif": "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
+  "Active": "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
+  "Geliştirme": "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
+  "In Development": "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
+  "Tamamlandı": "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+  "Completed": "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+};
+---
+
+<section id="projects" class="py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16 animate-slide-up">
+      <h2 class="section-title">{projects.title as string}</h2>
+      <p class="section-subtitle">{projects.subtitle as string}</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {items.map((project, index) => (
+        <div class="card group flex flex-col" style={`animation-delay: ${index * 100}ms`}>
+          <!-- Header -->
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-accent/10 dark:bg-accent-dark/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-accent dark:text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0l-7 7m7-7l-7-7"/>
+              </svg>
+            </div>
+            <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${statusColors[project.status] ?? "bg-gray-100 text-gray-600"}`}>
+              {project.status}
+            </span>
+          </div>
+
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+            {project.name}
+          </h3>
+
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-1">
+            {project.description}
+          </p>
+
+          <!-- Problem / Solution -->
+          <div class="space-y-2 mb-4">
+            <div class="flex gap-2">
+              <span class="shrink-0 text-xs font-bold text-red-500 dark:text-red-400 uppercase mt-0.5">P</span>
+              <p class="text-xs text-gray-600 dark:text-gray-400">{project.problem}</p>
+            </div>
+            <div class="flex gap-2">
+              <span class="shrink-0 text-xs font-bold text-green-500 dark:text-green-400 uppercase mt-0.5">S</span>
+              <p class="text-xs text-gray-600 dark:text-gray-400">{project.solution}</p>
+            </div>
+          </div>
+
+          <!-- Tech stack -->
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            {project.tech.map((tech) => (
+              <span class="tag">{tech}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

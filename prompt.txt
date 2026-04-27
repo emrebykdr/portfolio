@@ -1,0 +1,142 @@
+Uçtan Uca Portföy & DevSecOps Deployment Planı
+Bu plan, Astro (hız ve SEO için) ve Fly.io (dağıtık deployment için) temel alınarak hazırlanmıştır.
+
+🛠️ Faz 0: Hazırlık ve Teknoloji Seçimi
+Framework: Astro (Lighthouse 100 skoru için en güvenli liman).
+
+Stil: Tailwind CSS (Özgün tasarım ve Dark Mode desteği için).
+
+Konteyner: Docker (Multi-stage build).
+
+CI/CD: GitHub Actions.
+
+Monitoring: Better Stack.
+
+📅 Faz 1: İçerik ve UI/UX Geliştirme (G1, B1, B2, B5)
+Görsellerdeki "7 Bölüm" ve "Kalite Metrikleri" bu aşamada tamamlanır.
+
+7 Mecburi Bölümün Kodlanması:
+
+Hero: "Emre Bykdr" ismi, profesyonel bir fotoğraf ve net bir pitch cümlesi.
+
+Projeler: Yazoical diye sosyal platform yazılımcıalrın kullanacağı, TEKNOFEST 2026 (İKA) ve Asp.net ve .net projelerini "problem-çözüm-teknoloji" formatında ekle.
+
+Skills: Backend (C#, Python, Node.js), Hardware (STM32, ESP32) ve SQL yetkinliklerini dürüstçe listele.
+
+Deneyim/Eğitim: Bitlis Eren Üniversitesi bilgileri ve RoboCode kurucu başkanlığı.
+
+Hobiler: Alp disiplini kayak ve 3D printing (Artillery X4 Plus).
+
+Bonus: Dark Mode & i18n (B5):
+
+Tailwind dark: sınıflarını kullan.
+
+astro-i18next ile TR/EN dil desteği ekle.
+
+Bonus: İletişim Formu (B2):
+
+Astro Actions veya basit bir API endpoint ile (Resend üzerinden) çalışan bir form yap.
+
+📦 Faz 2: Dockerizasyon ve Prodüksiyon Hijyeni (G2, G3, G6)
+Uygulamanın standartlara uygun paketlenmesi.
+
+Multi-stage Dockerfile (G2):
+
+node:20-alpine kullan.
+
+Build aşamasında bağımlılıkları yükle, final aşamasında sadece dist ve node_modules kalsın. (Hedef: <30MB image).
+
+Docker Compose & Sağlık Kontrolü (G3, G6):
+
+docker-compose.yml ile yerel test yap.
+
+Uygulamaya bir /health rotası ekle (SRE gereksinimi).
+
+Structured JSON logging (Pino veya Winston) kullanarak log hijyeni sağla.
+
+🛡️ Faz 3: CI/CD Pipeline ve DevSecOps (G4, G5)
+GitHub Actions üzerinden otomasyon ve güvenlik.
+
+Workflow Oluşturma (G4):
+
+Her push işleminde lint, test ve build adımlarını çalıştır.
+
+Başarılı build sonrası imajı GitHub Container Registry (GHCR) üzerine pushla.
+
+DevSecOps Quality Gate (G5):
+
+Trivy: Docker imajındaki zafiyetleri tara.
+
+Gitleaks: Kodda unutulmuş API key/secret varsa pipeline'ı durdur.
+
+Semgrep: Statik kod analizi yap.
+
+Kritik İpucu: Juriye göstermek için pipeline'ı bilerek kırmızıya düşüren bir commit (örneğin sahte bir API key ekleyerek) at ve ekran görüntüsü al.
+
+🚀 Faz 4: Fly.io Deployment ve SRE (G7, G8, G10, B1)
+Canlıya çıkış ve süreklilik.
+
+Fly.io Kurulumu (G7):
+
+fly launch ile projeyi yapılandır.
+
+fly.toml içinde healthcheck ayarlarını /health rotasına bağla.
+
+Multi-region Deploy (Bonus B1):
+
+fly regions add ams (Amsterdam) komutuyla uygulamayı iki farklı bölgeye yay.
+
+Custom Domain & SSL (G8):
+
+Domainini Fly.io'ya bağla ve SSL sertifikasının (HTTPS) yeşil yandığından emin ol.
+
+Observability (G10):
+
+Better Stack Uptime ile siteni izle.
+
+Herkese açık bir "Status Page" oluştur ve portföyün footer kısmına linkini koy.
+
+📊 Faz 5: Analitik ve Marka (B4)
+Kişisel marka ve gizlilik.
+
+Privacy Analytics (Bonus B4):
+
+Umami veya Cloudflare Web Analytics (çerezsiz, gizlilik dostu) kur.
+
+OG Meta Etiketleri:
+
+Siten paylaşıldığında güzel görünmesi için og:image ve Twitter kartlarını ayarla.
+
+Lighthouse Denetimi:
+
+Deployment sonrası Lighthouse çalıştır. Performans ve Erişilebilirlik (a11y) puanlarının 90+ olduğunu teyit et.
+
+🎬 Faz 6: Teslimat (G9)
+Final dokümantasyonu.
+
+README.md:
+
+Teknik mimariyi anlatan bir Mermaid.js diyagramı ekle.
+
+Stack bilgilerini ve özellik listesini yaz.
+
+AI Beyanı: İçerik veya kodun neresinde AI kullandığını dürüstçe belirt.
+
+Demo Videosu:
+
+5 dakikayı geçmeyen; hem portföyü hem de GitHub Actions/Fly.io panelini gösteren bir ekran kaydı al.
+
+🏆 Final Kontrol Listesi (Puan Durumu)
+[ ] 7 Bölüm Dolu mu? (Hero, Projeler, Skills...) (G1)
+
+[ ] Dockerfile Multi-stage mi? (G2)
+
+[ ] GitHub Actions'da Gitleaks/Trivy var mı? (G5)
+
+[ ] Fly.io'da 2 farklı bölgede mi çalışıyor? (B1 - Bonus)
+
+[ ] Lighthouse skoru 90+ mı? (G8)
+
+[ ] Çalışan bir iletişim formu var mı? (B2 - Bonus)
+
+[ ] Dark Mode ve Dil desteği var mı? (B5 - Bonus)

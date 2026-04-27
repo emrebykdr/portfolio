@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "projects": "Projeler",
+    "skills": "Yetenekler",
+    "experience": "Deneyim",
+    "hobbies": "Hobiler",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "greeting": "Merhaba, ben",
+    "name": "Emre Büyükdere",
+    "role": "Backend Developer & Embedded Systems Engineer",
+    "pitch": "C#, Python ve gömülü sistemler ile gerçek dünya problemlerine ölçeklenebilir çözümler üretiyorum.",
+    "cta_projects": "Projelerimi Gör",
+    "cta_contact": "İletişime Geç",
+    "available": "Açık pozisyonlara uygun"
+  },
+  "projects": {
+    "title": "Projeler",
+    "subtitle": "Problem → Çözüm → Teknoloji formatında",
+    "items": [
+      {
+        "name": "Yazoical",
+        "description": "Yazılımcılar için tasarlanmış sosyal platform. Kod paylaşımı, teknik blog yazma ve geliştirici topluluğu oluşturma odaklı.",
+        "problem": "Yazılımcıların teknik bilgi paylaşımı için özgün bir Türkçe platform eksikliği.",
+        "solution": "Markdown destekli kod paylaşımı, etiket sistemi ve topluluk özellikleri.",
+        "tech": ["ASP.NET Core", "PostgreSQL", "Redis", "Docker"],
+        "status": "Geliştirme"
+      },
+      {
+        "name": "TEKNOFEST 2026 – İnsansız Kara Aracı",
+        "description": "TEKNOFEST İnsansız Kara Araçları yarışması için geliştirilen otonom navigasyon sistemi.",
+        "problem": "Karmaşık arazi koşullarında engel tespiti ve otonom hareket.",
+        "solution": "STM32 tabanlı kontrol sistemi, ESP32 WiFi modülü ve gerçek zamanlı görüntü işleme.",
+        "tech": ["STM32", "ESP32", "Python", "OpenCV", "ROS2"],
+        "status": "Aktif"
+      },
+      {
+        "name": "RoboCode Yönetim Sistemi",
+        "description": "Bitlis Eren Üniversitesi RoboCode kulübü için etkinlik, üye ve proje yönetim platformu.",
+        "problem": "Kulüp operasyonlarının spreadsheet ile yönetilmesinin yarattığı verimsizlik.",
+        "solution": "Rol tabanlı erişim kontrolü, etkinlik takvimi ve proje takip modülleri.",
+        "tech": ["ASP.NET Core", "Entity Framework", "SQL Server", "Bootstrap"],
+        "status": "Tamamlandı"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Yetenekler",
+    "subtitle": "Dürüst bir değerlendirme",
+    "categories": {
+      "backend": "Backend",
+      "hardware": "Donanım",
+      "database": "Veritabanı",
+      "devops": "DevOps & Araçlar"
+    }
+  },
+  "experience": {
+    "title": "Deneyim & Eğitim",
+    "subtitle": "Akademik ve topluluk deneyimlerim",
+    "education": "Eğitim",
+    "clubs": "Kulüpler & Sorumluluklar"
+  },
+  "hobbies": {
+    "title": "Hobiler",
+    "subtitle": "İşin dışındaki dünyam",
+    "ski": {
+      "title": "Alp Disiplini Kayak",
+      "description": "Slalom ve dev slalom disiplinlerinde aktif olarak kayak yapıyorum. Dağ ortamındaki problem çözme becerileri mühendislik yaklaşımımı şekillendiriyor."
+    },
+    "printing": {
+      "title": "3D Baskı",
+      "description": "Artillery X4 Plus yazıcımla prototip parçalar, kulüp için robotik bileşenler ve tasarım projeleri üretiyorum."
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Projeleriniz veya iş birliği için yazın",
+    "name": "Adınız",
+    "email": "E-posta adresiniz",
+    "message": "Mesajınız",
+    "send": "Gönder",
+    "sending": "Gönderiliyor...",
+    "success": "Mesajınız iletildi! En kısa sürede dönüş yapacağım.",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "name_placeholder": "Adınızı girin",
+    "email_placeholder": "email@ornek.com",
+    "message_placeholder": "Mesajınızı buraya yazın..."
+  },
+  "footer": {
+    "status": "Durum Sayfası",
+    "rights": "Tüm haklar saklıdır.",
+    "built_with": "Astro & Tailwind CSS ile yapıldı"
+  }
+}

@@ -1,0 +1,61 @@
+---
+interface Props {
+  t: Record<string, unknown>;
+}
+const { t } = Astro.props;
+const hobbies = t.hobbies as Record<string, unknown>;
+const ski = hobbies.ski as Record<string, string>;
+const printing = hobbies.printing as Record<string, string>;
+---
+
+<section id="hobbies" class="py-24 bg-gray-50 dark:bg-gray-900/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16">
+      <h2 class="section-title">{hobbies.title as string}</h2>
+      <p class="section-subtitle">{hobbies.subtitle as string}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Alpine Skiing -->
+      <div class="card group overflow-hidden">
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{ski.title}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{ski.description}</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="skill-badge">Slalom</span>
+              <span class="skill-badge">Dev Slalom</span>
+              <span class="skill-badge">Alp Disiplini</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Printing -->
+      <div class="card group overflow-hidden">
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-orange-50 dark:bg-orange-900/20 border border-orange-100 dark:border-orange-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-orange-500 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{printing.title}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{printing.description}</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="skill-badge">Artillery X4 Plus</span>
+              <span class="skill-badge">FDM</span>
+              <span class="skill-badge">PLA / PETG</span>
+              <span class="skill-badge">Fusion 360</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

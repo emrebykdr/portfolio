@@ -1,0 +1,77 @@
+---
+interface Props {
+  t: Record<string, unknown>;
+}
+const { t } = Astro.props;
+const skills = t.skills as Record<string, unknown>;
+const categories = skills.categories as Record<string, string>;
+
+const skillData = {
+  backend: [
+    { name: "C#", level: 85 },
+    { name: "ASP.NET Core", level: 80 },
+    { name: "Python", level: 75 },
+    { name: "Node.js", level: 60 },
+    { name: "REST API", level: 85 },
+    { name: "gRPC", level: 55 },
+  ],
+  hardware: [
+    { name: "STM32", level: 75 },
+    { name: "ESP32", level: 70 },
+    { name: "C (Embedded)", level: 65 },
+    { name: "UART/SPI/I2C", level: 70 },
+    { name: "ROS2", level: 50 },
+    { name: "OpenCV", level: 55 },
+  ],
+  database: [
+    { name: "PostgreSQL", level: 75 },
+    { name: "SQL Server", level: 70 },
+    { name: "Redis", level: 60 },
+    { name: "Entity Framework", level: 80 },
+  ],
+  devops: [
+    { name: "Docker", level: 70 },
+    { name: "GitHub Actions", level: 65 },
+    { name: "Git", level: 85 },
+    { name: "Linux", level: 65 },
+    { name: "Fly.io", level: 55 },
+  ],
+};
+---
+
+<section id="skills" class="py-24 bg-gray-50 dark:bg-gray-900/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16">
+      <h2 class="section-title">{skills.title as string}</h2>
+      <p class="section-subtitle">{skills.subtitle as string}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {(Object.entries(skillData) as [string, {name: string; level: number}[]][]).map(([key, items]) => (
+        <div class="card">
+          <h3 class="text-sm font-bold uppercase tracking-widest text-accent dark:text-accent-dark mb-6">
+            {categories[key]}
+          </h3>
+          <div class="space-y-4">
+            {items.map((skill) => (
+              <div>
+                <div class="flex justify-between items-center mb-1.5">
+                  <span class="text-sm font-mono font-medium text-gray-700 dark:text-gray-300">
+                    {skill.name}
+                  </span>
+                  <span class="text-xs text-gray-400 dark:text-gray-500">{skill.level}%</span>
+                </div>
+                <div class="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                  <div
+                    class="h-full bg-gradient-to-r from-accent to-purple-500 dark:from-accent-dark dark:to-purple-400 rounded-full transition-all duration-1000"
+                    style={`width: ${skill.level}%`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

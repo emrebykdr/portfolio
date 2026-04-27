@@ -1,0 +1,35 @@
+---
+interface Props {
+  t: Record<string, unknown>;
+}
+const { t } = Astro.props;
+const footer = t.footer as Record<string, string>;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-gray-100 dark:border-gray-800 py-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-mono font-semibold text-accent dark:text-accent-dark">emrebykdr</span>
+        <span class="text-gray-400 dark:text-gray-600">·</span>
+        <span class="text-sm text-gray-500 dark:text-gray-400">© {currentYear} — {footer.rights}</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <!-- Status Page link -->
+        <a
+          href="https://status.emrebykdr.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-accent dark:hover:text-accent-dark transition-colors"
+        >
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          {footer.status}
+        </a>
+
+        <span class="text-sm text-gray-400 dark:text-gray-600">{footer.built_with}</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,62 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import { getLangFromUrl, useTranslations, type Locale } from "../i18n/utils";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: Locale;
+}
+
+const {
+  title = "Emre Büyükdere – Backend Developer",
+  description = "Backend Developer & Embedded Systems Engineer. C#, Python, .NET, STM32, ESP32.",
+  lang = getLangFromUrl(Astro.url),
+} = Astro.props;
+
+const t = useTranslations(lang);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://emrebykdr.dev");
+const ogImage = new URL("/og-image.png", canonicalURL.origin);
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === "tr" ? "tr_TR" : "en_US"} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{title}</title>
+
+    <!-- Dark mode: apply before paint to avoid flash -->
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+  <body class="min-h-screen antialiased">
+    <Header lang={lang} t={t} />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
